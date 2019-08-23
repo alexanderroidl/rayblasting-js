@@ -1,0 +1,96 @@
+@import './config';
+@import './queries';
+@import './util';
+
+@import './vendor/reset';
+
+body, html {
+	position: relative;
+	height: 100%;
+}
+
+.canvas-wrapper,
+#canvas {
+	width: 250px;
+	height: 250px;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #ccc;
+
+	@media (min-width: $sm) {
+		width: 400px;
+		height: 400px;
+	}
+
+	@media (min-width: $md) {
+		width: 500px;
+		height: 500px;
+	}
+
+	@media (min-width: $lg) {
+		width: 550px;
+		height: 550px;
+	}
+
+	@media (min-width: $xl) {
+		width: 600px;
+		height: 600px;
+	}
+}
+
+.canvas-wrapper {
+	#canvas {
+		position: static;
+		transform: none;
+		top: auto;
+		left: auto;
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	.ui-canvas-overlay {
+		@extend %overlay;
+
+		.ui-load {
+			box-sizing: content-box;
+			height: 20px;
+			width: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: width .5s, background-color .5s, border .5s, height 1.25s;
+			background: green;
+
+			&.hidden {
+				background: transparent;
+				height: 100%;
+				border: 1px solid #000;
+			}
+		}
+	}
+}
+
+#ui {
+	.ui-load {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 50px;
+		background: green;
+		transition: .5s;
+
+		&.hidden {
+			opacity: 0;
+			transition-delay: .5s;
+		}
+	}
+}
+
+canvas.tile {
+	margin: 2px;
+}
