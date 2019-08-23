@@ -23,6 +23,7 @@ gulp #Where the magic happens
 ### Engine features
 * Walls
 * Static objects
+* Simple minimap
 * Touch controls
 
 ### Libraries used
